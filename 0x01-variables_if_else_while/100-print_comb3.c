@@ -2,34 +2,28 @@
 #include <stdlib.h>
 #include <time.h>
 /**
- * main - a program that prints all possible different combinations
- * Return: Always 0
+ * main - write a program that prints all possible combination of two digits.
+ * Retrun: 0
  */
 int main(void)
 {
-	int d, p, q;
+	int d, p;
 
 	for (d = '0'; d < '9'; d++)
 	{
-	for (p = d + 1; p <= '9'; q++)
+	for (p = d + 1; p <= '9'; P++)
 	{
-	for (q = p + 1; q <= '9'; q++)
-	{
-	if ((p != d) != q)
+	if (p != d)
 	{
 	putchar(d);
 	putchar(p);
-	if (d == '7' && p == '8')
+	if (d == '8' && p == '9')
 	continue;
 	putchar(',');
 	putchar(' ');
 	}
 	}
 	}
-	}
 	putchar('\n');
-
 	return (0);
-
 }
-
