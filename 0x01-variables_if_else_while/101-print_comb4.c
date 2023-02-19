@@ -19,7 +19,7 @@ int main(void)
 	{
 	putchar(d);
 	putchar(p);
-	putchat(q);
+	putchar(q);
 	if (d == '7' && p == '8')
 		continue;
 	putchar(',');
