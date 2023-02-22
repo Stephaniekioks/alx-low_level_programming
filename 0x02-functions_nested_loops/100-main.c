@@ -4,7 +4,7 @@
  *
  * Return: Always 0
  */
-void print_times_table
+void print_times_table(int n)
 {
 	print_times_table(3);
 	_putchar('\n');
