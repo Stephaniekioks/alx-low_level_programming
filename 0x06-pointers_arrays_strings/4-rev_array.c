@@ -5,15 +5,15 @@
  * @n: number of elements
  * Return: void
  */
-void reverse_array(int *x, int y)
+void reverse_array(int *a, int n)
 {
 	int i;
 	int j;
 
-	for (i = 0; i < y--; i++)
+	for (i = 0; i < n--; i++)
 	{
-		j = x[i];
-		x[i] = x[y];
-		x[y] = j;
+		j = a[i];
+		a[i] = a[n];
+		a[n] = j;
 	}
 }
