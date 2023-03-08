@@ -4,7 +4,7 @@
  *
  * @n: number to find the square root of
  * @x: tests square root of number
- * Return: a natural square root of a number
+ * Return: square root of n, else -1 if no natural square root found
  */
 int _square_root(int n int x)
 {
@@ -15,6 +15,7 @@ int _square_root(int n int x)
 }
 /**
  * _sqrt_recursion - returns the natural square root of a number
+ * @n: number to find square root of
  * Return: square root of n, else -1 if no natural square root found
  */
 int _sqrt_recursion(int n)
