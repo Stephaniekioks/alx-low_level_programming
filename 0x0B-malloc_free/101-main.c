@@ -30,7 +30,7 @@ int main(void)
 	tab = strtow("       ALX School       #cisfun     ");
 	if (tab == NULL)
 	{
-		printf("Failed"\n);
+		printf("Failed\n");
 		return (1);
 	}
 	print_tab(tab);
