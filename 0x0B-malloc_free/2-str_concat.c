@@ -2,44 +2,47 @@
 #include <stdlib.h>
 
 /**
- * str_concat - concatenates two strings
+ * *str_concat - concatenates two strings
  *
  * @s1: string one
  * @s2: string two
  *
- * Return: pointer to newly allocated space in memory with content s! and s2
- * NULL on failure
- *
+ * Return: pointer to new string created (Success), or NULL (Error)
  */
 char *str_concat(char *s1, char *s2)
 {
-	char *s;
-	unsigned int x, y, l1, l2;
+	char *s3;
+	unsigned int i = 0, j = 0, len1 = 0, len2 = 0;
 
-	if (s1 == NULL)
-		x = 0;
-	else
-	{
-		for (x = 0; s1[x]; ++x)
-			;
+	while (s1 && s1[len1])
+		len1++;
+	while (s2 && s2[len2])
+		len2++;
 
-	}
-	if (s2 == NULL)
-		Y = 0;
-	else
-	{
-		for (y = 0; s2[y]; ++y)
-			;
-	}
-	l1 = 1 + x + y;
-	s = malloc(l1 * sizeof(char));
-
-	if (s == NULL)
+	s3 = malloc(sizeof(char) * (len1 + len2 + 1));
+	if (s3 == NULL)
 		return (NULL);
-	for (l2 = 0; l2 < x; ++l2)
-		s[l2] = s1[l2];
-	for (l2 = 0; l2 < y; ++l2)
-		s[l2 + x] = s2[l2];
-	s[x + y] = '\0';
-	return (s);
+
+	i = 0;
+	j = 0;
+
+	if (s1)
+	{
+		while (i < len1)
+		{
+			s3[i] = s1[i];
+			i++;
+		}
+	}
+	if (s2)
+	{
+		while (i < (len1 + len2))
+		{
+			s3[i] = s2[j];
+			i++;
+			j++;
+		}
+	}
+	s3[i] = '\0';
+	return (s3);
 }
