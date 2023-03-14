@@ -2,47 +2,44 @@
 #include <stdlib.h>
 
 /**
- * str_concat - get ends of input and add together for size
- * @s1: input one to concat
- * @s2: input two to concat
- * Return: concat of s1 and s2
+ * str_concat - concatenates two strings
+ *
+ * @s1: string one
+ * @s2: string two
+ *
+ * Return: pointer to newly allocated space in memory with content s! and s2
+ * NULL on failure
+ *
  */
 char *str_concat(char *s1, char *s2)
 {
-	char *conct;
+	char *s;
+	unsigned int x, y, l1, l2;
 
-	int i, ci;
+	if (s1 == NULL)
+		x = 0;
+	else
+	{
+		for (x = 0; s1[x]; ++x)
+			;
 
-	if (s1 == Null)
-		s1 = "";
+	}
 	if (s2 == NULL)
-		s2 = "";
+		Y = 0;
+	else
+	{
+		for (y = 0; s2[y]; ++y)
+			;
+	}
+	l1 = 1 + x + y;
+	s = malloc(l1 * sizeof(char));
 
-	i = ci 0;
-
-	while (s1[i] != '\0')
-		i++;
-	while (s2[ci] != '\0')
-		ci++;
-	conct = malloc(sizeof(char) * (i + ci + 1));
-
-	if (conct == NULL)
+	if (s == NULL)
 		return (NULL);
-
-	i = ci = 0;
-
-	while (s1[i] != '\0')
-	{
-		conct[i] = s1[i];
-		i++;
-	}
-
-	while (s2[ci] != '\0')
-	{
-		conct[i] = s2[ci];
-		i++, ci++;
-	}
-
-	conct[i] = '\0';
-	return (conct);
+	for (l2 = 0; l2 < x; ++l2)
+		s[l2] = s1[l2];
+	for (l2 = 0; l2 < y; ++l2)
+		s[l2 + x] = s2[l2];
+	s[x + y] = '\0';
+	return (s);
 }
