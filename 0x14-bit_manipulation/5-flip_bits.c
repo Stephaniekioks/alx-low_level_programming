@@ -9,6 +9,16 @@
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	unsigned int n;
+	int x, flipcount = 0;
+	unsigned long int one =  n ^ m;
+	unsigned long int two;
 
+	for (x = 64; x >= 0; x--)
+	{
+		two = one >> x;
+		if (two & 1)
+			flipcount++;
+	}
 
+	return (flipcount);
+}
