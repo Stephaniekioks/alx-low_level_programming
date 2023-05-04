@@ -1,29 +1,43 @@
 #include "main.h"
+#include <unistd.h>
+
 /**
- * print_binary - function that prints the binary representation of a number
- * @n: binary number
+ * _putchar - writes the caharacter c to stdout
+ * @c: character to print
+ *
+ * Return: 1 on success, -1 on error
+ * errno is set appropriately.
+ */
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
+}
+/**
+ * print_binary - prints the binary representation of a number
+ *
+ * @n: interger from user
+ *
  */
 void print_binary(unsigned long int n)
 {
-	int x = 0;
-	int y;
+	int x;
+	int y = 0;
 	unsigned long int z;
 
-	y = 64;
-	while (p >= 0)
+	x = 64;
+	while (x >= 0)
 	{
-		z = n >> y;
-
+		z = n >> x;
 		if (z & 1)
 		{
 			_putchar('1');
-			x++;
+			y++;
 		}
-		else if (x)
+		else if (y)
 			_putchar('0');
-		y--;
+		x--;
 	}
-	if (!x)
+	if (!y)
 	{
 		_putchar('0');
 	}
