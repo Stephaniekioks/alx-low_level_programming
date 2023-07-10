@@ -1,6 +1,6 @@
 #include "main.h"
 /*
- * create_file - fuction that creates a file
+ * create_file - fuction that creates a file with given context
  * @filename: name of new to be created
  * @text_content: Null terminated string to write to the file
  *
@@ -8,23 +8,21 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-	int i, j, new = 0;
+	int file, result = 1, countn = 0;
 
-	if (filename == NULL)
+	if (!filename)
+	return (-1);
+	file = open(filename,O_CREAT | O_WRONLY | O_TRUNC, 0600);
+	if (file == -1)
 		return (-1);
-	if (text_content != NULL)
+	if (text_content)
 	{
-		for (new = 0; text_content[new];)
-				new++;
+		while (text_content[countn])
+			countn++;
+		result = write(file, text_content, countn);
 	}
-
-	i = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0);
-	j = write(i, text_content, new);
-
-	if (i == -1 || j == -1)
+	if (result == -1)
 		return (-1);
-
-	close(i);
-
-	return (1);
+	close(file);
+	return(1);
 }
