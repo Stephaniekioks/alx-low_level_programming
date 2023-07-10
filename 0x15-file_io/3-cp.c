@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 	org_file = open(argv[1], O_RDONLY);
 	if (org_file == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: cannot read from file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: can't read from file %s\n", argv[1]);
 			exit(98);
 	}
 	dest_file = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 00644);
@@ -30,12 +30,12 @@ int main(int argc, char *argv[])
 	{
 		if (dest_file == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: cannot write to %s\n", argv[2]);
+			dprintf(STDERR_FILENO, "Error: can't write to %s\n", argv[2]);
 			exit(99);
 		}
 		if (read_len == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: cannot read from file %s\n", argv[1]);
+			dprintf(STDERR_FILENO, "Error: can't read from file %s\n", argv[1]);
 			exit(98);
 		}
 	}
@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
 	}
 	if (close(dest_file) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: can't clode fd %d\n", dest_file);
+		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", dest_file);
 		exit(100);
 	}
 	return (0);
